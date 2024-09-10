@@ -1,0 +1,302 @@
+(llama3_venv) PS F:\finetune> python .\fine_tune_llamav4.py
+[INFO] Setting up Hugging Face cache...
+[INFO] Logging into Hugging Face...
+The token has not been saved to the git credentials helper. Pass `add_to_git_credential=True` in this function directly or `--add-to-git-credential` if using via `huggingface-cli` if you want to set the git credential as well.
+Token is valid (permission: fineGrained).
+Your token has been saved to C:\Users\mac\.cache\huggingface\token
+Login successful
+[INFO] Login successful
+[INFO] Loading dataset...
+[INFO] Formatting dataset for chatbot...
+Map: 100%|█████████████████████████████████████████████████████████████████████| 1522/1522 [00:00<00:00, 16867.29 examples/s]
+[INFO] Dataset split into training and testing sets
+[INFO] Loading tokenizer...
+[INFO] Adding padding token to tokenizer...
+[INFO] Loading model...
+Loading checkpoint shards: 100%|███████████████████████████████████████████████████████████████| 4/4 [00:09<00:00,  2.48s/it]
+[INFO] Configuring LoRA...
+[INFO] Preparing model for k-bit training...
+F:\finetune\llama3_venv\Lib\site-packages\transformers\training_args.py:1525: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+[INFO] Training arguments set. Output directory: F:/output_llama3_qlora
+F:\finetune\llama3_venv\Lib\site-packages\huggingface_hub\utils\_deprecation.py:100: FutureWarning: Deprecated argument(s) used in '__init__': max_seq_length, dataset_text_field. Will not be supported from version '1.0.0'.
+
+Deprecated positional argument(s) used in SFTTrainer, please use the SFTConfig to set these arguments instead.
+  warnings.warn(message, FutureWarning)
+F:\finetune\llama3_venv\Lib\site-packages\trl\trainer\sft_trainer.py:283: UserWarning: You passed a `max_seq_length` argument to the SFTTrainer, the value you passed will override the one in the `SFTConfig`.
+  warnings.warn(
+F:\finetune\llama3_venv\Lib\site-packages\trl\trainer\sft_trainer.py:321: UserWarning: You passed a `dataset_text_field` argument to the SFTTrainer, the value you passed will override the one in the `SFTConfig`.
+  warnings.warn(
+Map: 100%|██████████████████████████████████████████████████████████████████████| 1369/1369 [00:00<00:00, 7822.76 examples/s]
+Map: 100%|████████████████████████████████████████████████████████████████████████| 153/153 [00:00<00:00, 5463.61 examples/s]
+[INFO] Starting fine-tuning...
+[INFO] Training started
+  0%|                                                                                                | 0/342 [00:00<?, ?it/s]F:\finetune\llama3_venv\Lib\site-packages\torch\_dynamo\eval_frame.py:600: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.4 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+F:\finetune\llama3_venv\Lib\site-packages\transformers\models\llama\modeling_llama.py:660: UserWarning: 1Torch was not compiled with flash attention. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\builder\windows\pytorch\aten\src\ATen\native\transformers\cuda\sdp_utils.cpp:555.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+F:\finetune\llama3_venv\Lib\site-packages\torch\utils\checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+  3%|██▍                                                                                  | 10/342 [02:30<1:21:43, 14.77s/it][DEBUG] Logging values -> Epoch: 0.05843681519357195, Training_loss: 2.0451, Eval_loss: nan, Learning_rate: 4.853801169590643e-05, Time_taken: 150.0258252620697
+[INFO] Epoch 0.05843681519357195: training_loss = 2.0451, eval_loss = nan, learning_rate = 4.853801169590643e-05, time_taken = 150.0258252620697
+{'loss': 2.0451, 'grad_norm': 0.0, 'learning_rate': 4.853801169590643e-05, 'epoch': 0.06}
+  3%|██▍                                                                                  | 10/342 [02:30<1:21:43, 14.77s/it][DEBUG] Logging values -> Epoch: 0.05843681519357195, Training_loss: nan, Eval_loss: 1.9885568618774414, Learning_rate: nan, Time_taken: 250.39471578598022
+[INFO] Epoch 0.05843681519357195: training_loss = nan, eval_loss = 1.9885568618774414, learning_rate = nan, time_taken = 250.39471578598022
+{'eval_loss': 1.9885568618774414, 'eval_runtime': 100.358, 'eval_samples_per_second': 1.525, 'eval_steps_per_second': 1.525, 'epoch': 0.06}
+  6%|████▉                                                                                | 20/342 [06:35<1:24:01, 15.66s/it][DEBUG] Logging values -> Epoch: 0.1168736303871439, Training_loss: 2.0511, Eval_loss: nan, Learning_rate: 4.707602339181287e-05, Time_taken: 395.461464881897
+[INFO] Epoch 0.1168736303871439: training_loss = 2.0511, eval_loss = nan, learning_rate = 4.707602339181287e-05, time_taken = 395.461464881897
+{'loss': 2.0511, 'grad_norm': 0.0, 'learning_rate': 4.707602339181287e-05, 'epoch': 0.12}
+  6%|████▉                                                                                | 20/342 [06:35<1:24:01, 15.66s/it][DEBUG] Logging values -> Epoch: 0.1168736303871439, Training_loss: nan, Eval_loss: 1.9885568618774414, Learning_rate: nan, Time_taken: 495.93446016311646
+[INFO] Epoch 0.1168736303871439: training_loss = nan, eval_loss = 1.9885568618774414, learning_rate = nan, time_taken = 495.93446016311646
+{'eval_loss': 1.9885568618774414, 'eval_runtime': 100.463, 'eval_samples_per_second': 1.523, 'eval_steps_per_second': 1.523, 'epoch': 0.12}
+  9%|███████▍                                                                             | 30/342 [10:51<1:23:07, 15.98s/it][DEBUG] Logging values -> Epoch: 0.17531044558071585, Training_loss: 1.8741, Eval_loss: nan, Learning_rate: 4.56140350877193e-05, Time_taken: 651.4860346317291
+[INFO] Epoch 0.17531044558071585: training_loss = 1.8741, eval_loss = nan, learning_rate = 4.56140350877193e-05, time_taken = 651.4860346317291
+{'loss': 1.8741, 'grad_norm': 0.0, 'learning_rate': 4.56140350877193e-05, 'epoch': 0.18}
+  9%|███████▍                                                                             | 30/342 [10:51<1:23:07, 15.98s/it][DEBUG] Logging values -> Epoch: 0.17531044558071585, Training_loss: nan, Eval_loss: 1.9885568618774414, Learning_rate: nan, Time_taken: 752.1870353221893
+[INFO] Epoch 0.17531044558071585: training_loss = nan, eval_loss = 1.9885568618774414, learning_rate = nan, time_taken = 752.1870353221893
+{'eval_loss': 1.9885568618774414, 'eval_runtime': 100.689, 'eval_samples_per_second': 1.52, 'eval_steps_per_second': 1.52, 'epoch': 0.18}
+ 12%|█████████▉                                                                           | 40/342 [15:10<1:24:29, 16.79s/it][DEBUG] Logging values -> Epoch: 0.2337472607742878, Training_loss: 2.0068, Eval_loss: nan, Learning_rate: 4.4152046783625734e-05, Time_taken: 910.5853486061096
+[INFO] Epoch 0.2337472607742878: training_loss = 2.0068, eval_loss = nan, learning_rate = 4.4152046783625734e-05, time_taken = 910.5853486061096
+{'loss': 2.0068, 'grad_norm': 0.0, 'learning_rate': 4.4152046783625734e-05, 'epoch': 0.23}
+ 12%|█████████▉                                                                           | 40/342 [15:10<1:24:29, 16.79s/it][DEBUG] Logging values -> Epoch: 0.2337472607742878, Training_loss: nan, Eval_loss: 1.9885568618774414, Learning_rate: nan, Time_taken: 1011.274329662323
+[INFO] Epoch 0.2337472607742878: training_loss = nan, eval_loss = 1.9885568618774414, learning_rate = nan, time_taken = 1011.274329662323
+{'eval_loss': 1.9885568618774414, 'eval_runtime': 100.677, 'eval_samples_per_second': 1.52, 'eval_steps_per_second': 1.52, 'epoch': 0.23}
+ 15%|████████████▍                                                                        | 50/342 [19:21<1:19:49, 16.40s/it][DEBUG] Logging values -> Epoch: 0.2921840759678597, Training_loss: 2.0467, Eval_loss: nan, Learning_rate: 4.269005847953216e-05, Time_taken: 1161.65003657341
+[INFO] Epoch 0.2921840759678597: training_loss = 2.0467, eval_loss = nan, learning_rate = 4.269005847953216e-05, time_taken = 1161.65003657341
+{'loss': 2.0467, 'grad_norm': 0.0, 'learning_rate': 4.269005847953216e-05, 'epoch': 0.29}
+ 15%|████████████▍                                                                        | 50/342 [19:21<1:19:49, 16.40s/it][DEBUG] Logging values -> Epoch: 0.2921840759678597, Training_loss: nan, Eval_loss: 1.9885568618774414, Learning_rate: nan, Time_taken: 1262.3620309829712
+[INFO] Epoch 0.2921840759678597: training_loss = nan, eval_loss = 1.9885568618774414, learning_rate = nan, time_taken = 1262.3620309829712
+{'eval_loss': 1.9885568618774414, 'eval_runtime': 100.702, 'eval_samples_per_second': 1.519, 'eval_steps_per_second': 1.519, 'epoch': 0.29}
+ 15%|████████████▍                                                                        | 50/342 [21:02<1:19:49, 16.40s/it]F:\finetune\llama3_venv\Lib\site-packages\torch\_dynamo\eval_frame.py:600: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.4 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+F:\finetune\llama3_venv\Lib\site-packages\torch\utils\checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+ 18%|██████████████▉                                                                      | 60/342 [23:35<1:12:12, 15.36s/it][DEBUG] Logging values -> Epoch: 0.3506208911614317, Training_loss: 2.0812, Eval_loss: nan, Learning_rate: 4.12280701754386e-05, Time_taken: 1415.308089017868
+[INFO] Epoch 0.3506208911614317: training_loss = 2.0812, eval_loss = nan, learning_rate = 4.12280701754386e-05, time_taken = 1415.308089017868
+{'loss': 2.0812, 'grad_norm': 0.0, 'learning_rate': 4.12280701754386e-05, 'epoch': 0.35}
+ 18%|██████████████▉                                                                      | 60/342 [23:35<1:12:12, 15.36s/it][DEBUG] Logging values -> Epoch: 0.3506208911614317, Training_loss: nan, Eval_loss: 1.9885568618774414, Learning_rate: nan, Time_taken: 1515.9890925884247
+[INFO] Epoch 0.3506208911614317: training_loss = nan, eval_loss = 1.9885568618774414, learning_rate = nan, time_taken = 1515.9890925884247
+{'eval_loss': 1.9885568618774414, 'eval_runtime': 100.671, 'eval_samples_per_second': 1.52, 'eval_steps_per_second': 1.52, 'epoch': 0.35}
+ 20%|█████████████████▍                                                                   | 70/342 [27:50<1:13:20, 16.18s/it][DEBUG] Logging values -> Epoch: 0.40905770635500366, Training_loss: 2.0103, Eval_loss: nan, Learning_rate: 3.976608187134503e-05, Time_taken: 1670.736088514328
+[INFO] Epoch 0.40905770635500366: training_loss = 2.0103, eval_loss = nan, learning_rate = 3.976608187134503e-05, time_taken = 1670.736088514328
+{'loss': 2.0103, 'grad_norm': 0.0, 'learning_rate': 3.976608187134503e-05, 'epoch': 0.41}
+ 20%|█████████████████▍                                                                   | 70/342 [27:50<1:13:20, 16.18s/it][DEBUG] Logging values -> Epoch: 0.40905770635500366, Training_loss: nan, Eval_loss: 1.9885568618774414, Learning_rate: nan, Time_taken: 1771.4200394153595
+[INFO] Epoch 0.40905770635500366: training_loss = nan, eval_loss = 1.9885568618774414, learning_rate = nan, time_taken = 1771.4200394153595
+{'eval_loss': 1.9885568618774414, 'eval_runtime': 100.674, 'eval_samples_per_second': 1.52, 'eval_steps_per_second': 1.52, 'epoch': 0.41}
+ 23%|███████████████████▉                                                                 | 80/342 [32:09<1:16:58, 17.63s/it][DEBUG] Logging values -> Epoch: 0.4674945215485756, Training_loss: 1.9302, Eval_loss: nan, Learning_rate: 3.8304093567251465e-05, Time_taken: 1929.1206874847412
+[INFO] Epoch 0.4674945215485756: training_loss = 1.9302, eval_loss = nan, learning_rate = 3.8304093567251465e-05, time_taken = 1929.1206874847412
+{'loss': 1.9302, 'grad_norm': 0.0, 'learning_rate': 3.8304093567251465e-05, 'epoch': 0.47}
+ 23%|███████████████████▉                                                                 | 80/342 [32:09<1:16:58, 17.63s/it][DEBUG] Logging values -> Epoch: 0.4674945215485756, Training_loss: nan, Eval_loss: 1.9885568618774414, Learning_rate: nan, Time_taken: 2029.77268576622
+[INFO] Epoch 0.4674945215485756: training_loss = nan, eval_loss = 1.9885568618774414, learning_rate = nan, time_taken = 2029.77268576622
+{'eval_loss': 1.9885568618774414, 'eval_runtime': 100.639, 'eval_samples_per_second': 1.52, 'eval_steps_per_second': 1.52, 'epoch': 0.47}
+ 26%|██████████████████████▎                                                              | 90/342 [36:18<1:08:10, 16.23s/it][DEBUG] Logging values -> Epoch: 0.5259313367421475, Training_loss: 1.9645, Eval_loss: nan, Learning_rate: 3.6842105263157895e-05, Time_taken: 2178.1574745178223
+[INFO] Epoch 0.5259313367421475: training_loss = 1.9645, eval_loss = nan, learning_rate = 3.6842105263157895e-05, time_taken = 2178.1574745178223
+{'loss': 1.9645, 'grad_norm': 0.0, 'learning_rate': 3.6842105263157895e-05, 'epoch': 0.53}
+ 26%|██████████████████████▎                                                              | 90/342 [36:18<1:08:10, 16.23s/it][DEBUG] Logging values -> Epoch: 0.5259313367421475, Training_loss: nan, Eval_loss: 1.9885568618774414, Learning_rate: nan, Time_taken: 2278.8614716529846
+[INFO] Epoch 0.5259313367421475: training_loss = nan, eval_loss = 1.9885568618774414, learning_rate = nan, time_taken = 2278.8614716529846
+{'eval_loss': 1.9885568618774414, 'eval_runtime': 100.694, 'eval_samples_per_second': 1.519, 'eval_steps_per_second': 1.519, 'epoch': 0.53}
+ 29%|████████████████████████▌                                                           | 100/342 [40:39<1:07:57, 16.85s/it][DEBUG] Logging values -> Epoch: 0.5843681519357194, Training_loss: 1.9923, Eval_loss: nan, Learning_rate: 3.538011695906433e-05, Time_taken: 2439.8520061969757
+[INFO] Epoch 0.5843681519357194: training_loss = 1.9923, eval_loss = nan, learning_rate = 3.538011695906433e-05, time_taken = 2439.8520061969757
+{'loss': 1.9923, 'grad_norm': 0.0, 'learning_rate': 3.538011695906433e-05, 'epoch': 0.58}
+ 29%|████████████████████████▌                                                           | 100/342 [40:39<1:07:57, 16.85s/it][DEBUG] Logging values -> Epoch: 0.5843681519357194, Training_loss: nan, Eval_loss: 1.9885568618774414, Learning_rate: nan, Time_taken: 2540.5320019721985
+[INFO] Epoch 0.5843681519357194: training_loss = nan, eval_loss = 1.9885568618774414, learning_rate = nan, time_taken = 2540.5320019721985
+{'eval_loss': 1.9885568618774414, 'eval_runtime': 100.67, 'eval_samples_per_second': 1.52, 'eval_steps_per_second': 1.52, 'epoch': 0.58}
+ 29%|████████████████████████▌                                                           | 100/342 [42:20<1:07:57, 16.85s/it]F:\finetune\llama3_venv\Lib\site-packages\torch\_dynamo\eval_frame.py:600: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.4 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+F:\finetune\llama3_venv\Lib\site-packages\torch\utils\checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+ 32%|███████████████████████████                                                         | 110/342 [45:08<1:06:27, 17.19s/it][DEBUG] Logging values -> Epoch: 0.6428049671292915, Training_loss: 1.9394, Eval_loss: nan, Learning_rate: 3.391812865497076e-05, Time_taken: 2708.0284497737885
+[INFO] Epoch 0.6428049671292915: training_loss = 1.9394, eval_loss = nan, learning_rate = 3.391812865497076e-05, time_taken = 2708.0284497737885
+{'loss': 1.9394, 'grad_norm': 0.0, 'learning_rate': 3.391812865497076e-05, 'epoch': 0.64}
+ 32%|███████████████████████████                                                         | 110/342 [45:08<1:06:27, 17.19s/it][DEBUG] Logging values -> Epoch: 0.6428049671292915, Training_loss: nan, Eval_loss: 1.9885568618774414, Learning_rate: nan, Time_taken: 2808.687469482422
+[INFO] Epoch 0.6428049671292915: training_loss = nan, eval_loss = 1.9885568618774414, learning_rate = nan, time_taken = 2808.687469482422
+{'eval_loss': 1.9885568618774414, 'eval_runtime': 100.649, 'eval_samples_per_second': 1.52, 'eval_steps_per_second': 1.52, 'epoch': 0.64}
+ 35%|█████████████████████████████▍                                                      | 120/342 [49:27<1:00:35, 16.37s/it][DEBUG] Logging values -> Epoch: 0.7012417823228634, Training_loss: 1.9149, Eval_loss: nan, Learning_rate: 3.24561403508772e-05, Time_taken: 2967.789254426956
+[INFO] Epoch 0.7012417823228634: training_loss = 1.9149, eval_loss = nan, learning_rate = 3.24561403508772e-05, time_taken = 2967.789254426956
+{'loss': 1.9149, 'grad_norm': 0.0, 'learning_rate': 3.24561403508772e-05, 'epoch': 0.7}
+ 35%|█████████████████████████████▍                                                      | 120/342 [49:27<1:00:35, 16.37s/it][DEBUG] Logging values -> Epoch: 0.7012417823228634, Training_loss: nan, Eval_loss: 1.9885568618774414, Learning_rate: nan, Time_taken: 3068.4452543258667
+[INFO] Epoch 0.7012417823228634: training_loss = nan, eval_loss = 1.9885568618774414, learning_rate = nan, time_taken = 3068.4452543258667
+{'eval_loss': 1.9885568618774414, 'eval_runtime': 100.643, 'eval_samples_per_second': 1.52, 'eval_steps_per_second': 1.52, 'epoch': 0.7}
+ 38%|████████████████████████████████▋                                                     | 130/342 [53:41<56:34, 16.01s/it][DEBUG] Logging values -> Epoch: 0.7596785975164354, Training_loss: 1.9272, Eval_loss: nan, Learning_rate: 3.0994152046783626e-05, Time_taken: 3221.475768327713
+[INFO] Epoch 0.7596785975164354: training_loss = 1.9272, eval_loss = nan, learning_rate = 3.0994152046783626e-05, time_taken = 3221.475768327713
+{'loss': 1.9272, 'grad_norm': 0.0, 'learning_rate': 3.0994152046783626e-05, 'epoch': 0.76}
+ 38%|████████████████████████████████▋                                                     | 130/342 [53:41<56:34, 16.01s/it][DEBUG] Logging values -> Epoch: 0.7596785975164354, Training_loss: nan, Eval_loss: 1.9885568618774414, Learning_rate: nan, Time_taken: 3322.151781797409
+[INFO] Epoch 0.7596785975164354: training_loss = nan, eval_loss = 1.9885568618774414, learning_rate = nan, time_taken = 3322.151781797409
+{'eval_loss': 1.9885568618774414, 'eval_runtime': 100.665, 'eval_samples_per_second': 1.52, 'eval_steps_per_second': 1.52, 'epoch': 0.76}
+ 41%|███████████████████████████████████▏                                                  | 140/342 [57:51<53:55, 16.02s/it][DEBUG] Logging values -> Epoch: 0.8181154127100073, Training_loss: 2.0666, Eval_loss: nan, Learning_rate: 2.9532163742690062e-05, Time_taken: 3471.3108763694763
+[INFO] Epoch 0.8181154127100073: training_loss = 2.0666, eval_loss = nan, learning_rate = 2.9532163742690062e-05, time_taken = 3471.3108763694763
+{'loss': 2.0666, 'grad_norm': 0.0, 'learning_rate': 2.9532163742690062e-05, 'epoch': 0.82}
+ 41%|███████████████████████████████████▏                                                  | 140/342 [57:51<53:55, 16.02s/it][DEBUG] Logging values -> Epoch: 0.8181154127100073, Training_loss: nan, Eval_loss: 1.9885568618774414, Learning_rate: nan, Time_taken: 3571.9848766326904
+[INFO] Epoch 0.8181154127100073: training_loss = nan, eval_loss = 1.9885568618774414, learning_rate = nan, time_taken = 3571.9848766326904
+{'eval_loss': 1.9885568618774414, 'eval_runtime': 100.663, 'eval_samples_per_second': 1.52, 'eval_steps_per_second': 1.52, 'epoch': 0.82}
+ 44%|████████████████████████████████████▊                                               | 150/342 [1:01:59<51:53, 16.21s/it][DEBUG] Logging values -> Epoch: 0.8765522279035792, Training_loss: 1.9327, Eval_loss: nan, Learning_rate: 2.8070175438596492e-05, Time_taken: 3719.5227987766266
+[INFO] Epoch 0.8765522279035792: training_loss = 1.9327, eval_loss = nan, learning_rate = 2.8070175438596492e-05, time_taken = 3719.5227987766266
+{'loss': 1.9327, 'grad_norm': 0.0, 'learning_rate': 2.8070175438596492e-05, 'epoch': 0.88}
+ 44%|████████████████████████████████████▊                                               | 150/342 [1:01:59<51:53, 16.21s/it][DEBUG] Logging values -> Epoch: 0.8765522279035792, Training_loss: nan, Eval_loss: 1.9885568618774414, Learning_rate: nan, Time_taken: 3817.3917388916016
+[INFO] Epoch 0.8765522279035792: training_loss = nan, eval_loss = 1.9885568618774414, learning_rate = nan, time_taken = 3817.3917388916016
+{'eval_loss': 1.9885568618774414, 'eval_runtime': 97.86, 'eval_samples_per_second': 1.563, 'eval_steps_per_second': 1.563, 'epoch': 0.88}
+ 44%|████████████████████████████████████▊                                               | 150/342 [1:03:37<51:53, 16.21s/it]F:\finetune\llama3_venv\Lib\site-packages\torch\_dynamo\eval_frame.py:600: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.4 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+F:\finetune\llama3_venv\Lib\site-packages\torch\utils\checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+ 47%|███████████████████████████████████████▎                                            | 160/342 [1:06:04<47:15, 15.58s/it][DEBUG] Logging values -> Epoch: 0.9349890430971513, Training_loss: 2.0436, Eval_loss: nan, Learning_rate: 2.6608187134502928e-05, Time_taken: 3964.0764322280884
+[INFO] Epoch 0.9349890430971513: training_loss = 2.0436, eval_loss = nan, learning_rate = 2.6608187134502928e-05, time_taken = 3964.0764322280884
+{'loss': 2.0436, 'grad_norm': 0.0, 'learning_rate': 2.6608187134502928e-05, 'epoch': 0.93}
+ 47%|███████████████████████████████████████▎                                            | 160/342 [1:06:04<47:15, 15.58s/it][DEBUG] Logging values -> Epoch: 0.9349890430971513, Training_loss: nan, Eval_loss: 1.9885568618774414, Learning_rate: nan, Time_taken: 4061.911450147629
+[INFO] Epoch 0.9349890430971513: training_loss = nan, eval_loss = 1.9885568618774414, learning_rate = nan, time_taken = 4061.911450147629
+{'eval_loss': 1.9885568618774414, 'eval_runtime': 97.826, 'eval_samples_per_second': 1.564, 'eval_steps_per_second': 1.564, 'epoch': 0.93}
+ 50%|█████████████████████████████████████████▊                                          | 170/342 [1:10:08<45:38, 15.92s/it][DEBUG] Logging values -> Epoch: 0.9934258582907232, Training_loss: 1.9665, Eval_loss: nan, Learning_rate: 2.5146198830409358e-05, Time_taken: 4208.436119794846
+[INFO] Epoch 0.9934258582907232: training_loss = 1.9665, eval_loss = nan, learning_rate = 2.5146198830409358e-05, time_taken = 4208.436119794846
+{'loss': 1.9665, 'grad_norm': 0.0, 'learning_rate': 2.5146198830409358e-05, 'epoch': 0.99}
+ 50%|█████████████████████████████████████████▊                                          | 170/342 [1:10:08<45:38, 15.92s/it][DEBUG] Logging values -> Epoch: 0.9934258582907232, Training_loss: nan, Eval_loss: 1.9885568618774414, Learning_rate: nan, Time_taken: 4306.307016134262
+[INFO] Epoch 0.9934258582907232: training_loss = nan, eval_loss = 1.9885568618774414, learning_rate = nan, time_taken = 4306.307016134262
+{'eval_loss': 1.9885568618774414, 'eval_runtime': 97.862, 'eval_samples_per_second': 1.563, 'eval_steps_per_second': 1.563, 'epoch': 0.99}
+ 53%|████████████████████████████████████████████▏                                       | 180/342 [1:14:15<42:48, 15.85s/it][DEBUG] Logging values -> Epoch: 1.051862673484295, Training_loss: 1.9525, Eval_loss: nan, Learning_rate: 2.368421052631579e-05, Time_taken: 4455.556038379669
+[INFO] Epoch 1.051862673484295: training_loss = 1.9525, eval_loss = nan, learning_rate = 2.368421052631579e-05, time_taken = 4455.556038379669
+{'loss': 1.9525, 'grad_norm': 0.0, 'learning_rate': 2.368421052631579e-05, 'epoch': 1.05}
+ 53%|████████████████████████████████████████████▏                                       | 180/342 [1:14:15<42:48, 15.85s/it][DEBUG] Logging values -> Epoch: 1.051862673484295, Training_loss: nan, Eval_loss: 1.9885568618774414, Learning_rate: nan, Time_taken: 4553.395933151245
+[INFO] Epoch 1.051862673484295: training_loss = nan, eval_loss = 1.9885568618774414, learning_rate = nan, time_taken = 4553.395933151245
+{'eval_loss': 1.9885568618774414, 'eval_runtime': 97.831, 'eval_samples_per_second': 1.564, 'eval_steps_per_second': 1.564, 'epoch': 1.05}
+ 56%|██████████████████████████████████████████████▋                                     | 190/342 [1:18:28<42:54, 16.94s/it][DEBUG] Logging values -> Epoch: 1.110299488677867, Training_loss: 1.9888, Eval_loss: nan, Learning_rate: 2.2222222222222223e-05, Time_taken: 4708.798782348633
+[INFO] Epoch 1.110299488677867: training_loss = 1.9888, eval_loss = nan, learning_rate = 2.2222222222222223e-05, time_taken = 4708.798782348633
+{'loss': 1.9888, 'grad_norm': 0.0, 'learning_rate': 2.2222222222222223e-05, 'epoch': 1.11}
+ 56%|██████████████████████████████████████████████▋                                     | 190/342 [1:18:28<42:54, 16.94s/it][DEBUG] Logging values -> Epoch: 1.110299488677867, Training_loss: nan, Eval_loss: 1.9885568618774414, Learning_rate: nan, Time_taken: 4806.644909858704
+[INFO] Epoch 1.110299488677867: training_loss = nan, eval_loss = 1.9885568618774414, learning_rate = nan, time_taken = 4806.644909858704
+{'eval_loss': 1.9885568618774414, 'eval_runtime': 97.8371, 'eval_samples_per_second': 1.564, 'eval_steps_per_second': 1.564, 'epoch': 1.11}
+ 58%|█████████████████████████████████████████████████                                   | 200/342 [1:22:39<41:12, 17.41s/it][DEBUG] Logging values -> Epoch: 1.1687363038714391, Training_loss: 1.998, Eval_loss: nan, Learning_rate: 2.0760233918128656e-05, Time_taken: 4959.400694847107
+[INFO] Epoch 1.1687363038714391: training_loss = 1.998, eval_loss = nan, learning_rate = 2.0760233918128656e-05, time_taken = 4959.400694847107
+{'loss': 1.998, 'grad_norm': 0.0, 'learning_rate': 2.0760233918128656e-05, 'epoch': 1.17}
+ 58%|█████████████████████████████████████████████████                                   | 200/342 [1:22:39<41:12, 17.41s/it][DEBUG] Logging values -> Epoch: 1.1687363038714391, Training_loss: nan, Eval_loss: 1.9885568618774414, Learning_rate: nan, Time_taken: 5057.2656943798065
+[INFO] Epoch 1.1687363038714391: training_loss = nan, eval_loss = 1.9885568618774414, learning_rate = nan, time_taken = 5057.2656943798065
+{'eval_loss': 1.9885568618774414, 'eval_runtime': 97.857, 'eval_samples_per_second': 1.564, 'eval_steps_per_second': 1.564, 'epoch': 1.17}
+ 58%|█████████████████████████████████████████████████                                   | 200/342 [1:24:17<41:12, 17.41s/it]F:\finetune\llama3_venv\Lib\site-packages\torch\_dynamo\eval_frame.py:600: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.4 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+F:\finetune\llama3_venv\Lib\site-packages\torch\utils\checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+ 61%|███████████████████████████████████████████████████▌                                | 210/342 [1:26:49<35:10, 15.99s/it][DEBUG] Logging values -> Epoch: 1.227173119065011, Training_loss: 2.0123, Eval_loss: nan, Learning_rate: 1.929824561403509e-05, Time_taken: 5209.815557718277
+[INFO] Epoch 1.227173119065011: training_loss = 2.0123, eval_loss = nan, learning_rate = 1.929824561403509e-05, time_taken = 5209.815557718277
+{'loss': 2.0123, 'grad_norm': 0.0, 'learning_rate': 1.929824561403509e-05, 'epoch': 1.23}
+ 61%|███████████████████████████████████████████████████▌                                | 210/342 [1:26:49<35:10, 15.99s/it][DEBUG] Logging values -> Epoch: 1.227173119065011, Training_loss: nan, Eval_loss: 1.9885568618774414, Learning_rate: nan, Time_taken: 5307.664539813995
+[INFO] Epoch 1.227173119065011: training_loss = nan, eval_loss = 1.9885568618774414, learning_rate = nan, time_taken = 5307.664539813995
+{'eval_loss': 1.9885568618774414, 'eval_runtime': 97.84, 'eval_samples_per_second': 1.564, 'eval_steps_per_second': 1.564, 'epoch': 1.23}
+ 64%|██████████████████████████████████████████████████████                              | 220/342 [1:31:03<33:56, 16.69s/it][DEBUG] Logging values -> Epoch: 1.285609934258583, Training_loss: 1.9762, Eval_loss: nan, Learning_rate: 1.7836257309941522e-05, Time_taken: 5463.0200827121735
+[INFO] Epoch 1.285609934258583: training_loss = 1.9762, eval_loss = nan, learning_rate = 1.7836257309941522e-05, time_taken = 5463.0200827121735
+{'loss': 1.9762, 'grad_norm': 0.0, 'learning_rate': 1.7836257309941522e-05, 'epoch': 1.29}
+ 64%|██████████████████████████████████████████████████████                              | 220/342 [1:31:03<33:56, 16.69s/it][DEBUG] Logging values -> Epoch: 1.285609934258583, Training_loss: nan, Eval_loss: 1.9885568618774414, Learning_rate: nan, Time_taken: 5560.892082691193
+[INFO] Epoch 1.285609934258583: training_loss = nan, eval_loss = 1.9885568618774414, learning_rate = nan, time_taken = 5560.892082691193
+{'eval_loss': 1.9885568618774414, 'eval_runtime': 97.863, 'eval_samples_per_second': 1.563, 'eval_steps_per_second': 1.563, 'epoch': 1.29}
+ 67%|████████████████████████████████████████████████████████▍                           | 230/342 [1:35:07<31:07, 16.67s/it][DEBUG] Logging values -> Epoch: 1.3440467494521549, Training_loss: 1.9613, Eval_loss: nan, Learning_rate: 1.6374269005847955e-05, Time_taken: 5707.7879893779755
+[INFO] Epoch 1.3440467494521549: training_loss = 1.9613, eval_loss = nan, learning_rate = 1.6374269005847955e-05, time_taken = 5707.7879893779755
+{'loss': 1.9613, 'grad_norm': 0.0, 'learning_rate': 1.6374269005847955e-05, 'epoch': 1.34}
+ 67%|████████████████████████████████████████████████████████▍                           | 230/342 [1:35:07<31:07, 16.67s/it][DEBUG] Logging values -> Epoch: 1.3440467494521549, Training_loss: nan, Eval_loss: 1.9885568618774414, Learning_rate: nan, Time_taken: 5805.649989366531
+[INFO] Epoch 1.3440467494521549: training_loss = nan, eval_loss = 1.9885568618774414, learning_rate = nan, time_taken = 5805.649989366531
+{'eval_loss': 1.9885568618774414, 'eval_runtime': 97.852, 'eval_samples_per_second': 1.564, 'eval_steps_per_second': 1.564, 'epoch': 1.34}
+ 70%|██████████████████████████████████████████████████████████▉                         | 240/342 [1:39:13<27:02, 15.91s/it][DEBUG] Logging values -> Epoch: 1.4024835646457268, Training_loss: 1.9381, Eval_loss: nan, Learning_rate: 1.4912280701754386e-05, Time_taken: 5953.205608844757
+[INFO] Epoch 1.4024835646457268: training_loss = 1.9381, eval_loss = nan, learning_rate = 1.4912280701754386e-05, time_taken = 5953.205608844757
+{'loss': 1.9381, 'grad_norm': 0.0, 'learning_rate': 1.4912280701754386e-05, 'epoch': 1.4}
+ 70%|██████████████████████████████████████████████████████████▉                         | 240/342 [1:39:13<27:02, 15.91s/it][DEBUG] Logging values -> Epoch: 1.4024835646457268, Training_loss: nan, Eval_loss: 1.9885568618774414, Learning_rate: nan, Time_taken: 6051.034487962723
+[INFO] Epoch 1.4024835646457268: training_loss = nan, eval_loss = 1.9885568618774414, learning_rate = nan, time_taken = 6051.034487962723
+{'eval_loss': 1.9885568618774414, 'eval_runtime': 97.82, 'eval_samples_per_second': 1.564, 'eval_steps_per_second': 1.564, 'epoch': 1.4}
+ 73%|█████████████████████████████████████████████████████████████▍                      | 250/342 [1:43:17<24:20, 15.88s/it][DEBUG] Logging values -> Epoch: 1.4609203798392987, Training_loss: 2.0504, Eval_loss: nan, Learning_rate: 1.3450292397660819e-05, Time_taken: 6197.451102733612
+[INFO] Epoch 1.4609203798392987: training_loss = 2.0504, eval_loss = nan, learning_rate = 1.3450292397660819e-05, time_taken = 6197.451102733612
+{'loss': 2.0504, 'grad_norm': 0.0, 'learning_rate': 1.3450292397660819e-05, 'epoch': 1.46}
+ 73%|█████████████████████████████████████████████████████████████▍                      | 250/342 [1:43:17<24:20, 15.88s/it][DEBUG] Logging values -> Epoch: 1.4609203798392987, Training_loss: nan, Eval_loss: 1.9885568618774414, Learning_rate: nan, Time_taken: 6295.294102430344
+[INFO] Epoch 1.4609203798392987: training_loss = nan, eval_loss = 1.9885568618774414, learning_rate = nan, time_taken = 6295.294102430344
+{'eval_loss': 1.9885568618774414, 'eval_runtime': 97.834, 'eval_samples_per_second': 1.564, 'eval_steps_per_second': 1.564, 'epoch': 1.46}
+ 73%|█████████████████████████████████████████████████████████████▍                      | 250/342 [1:44:55<24:20, 15.88s/it]F:\finetune\llama3_venv\Lib\site-packages\torch\_dynamo\eval_frame.py:600: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.4 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+F:\finetune\llama3_venv\Lib\site-packages\torch\utils\checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+ 76%|███████████████████████████████████████████████████████████████▊                    | 260/342 [1:47:29<22:03, 16.14s/it][DEBUG] Logging values -> Epoch: 1.5193571950328706, Training_loss: 1.925, Eval_loss: nan, Learning_rate: 1.1988304093567252e-05, Time_taken: 6449.296395778656
+[INFO] Epoch 1.5193571950328706: training_loss = 1.925, eval_loss = nan, learning_rate = 1.1988304093567252e-05, time_taken = 6449.296395778656
+{'loss': 1.925, 'grad_norm': 0.0, 'learning_rate': 1.1988304093567252e-05, 'epoch': 1.52}
+ 76%|███████████████████████████████████████████████████████████████▊                    | 260/342 [1:47:29<22:03, 16.14s/it][DEBUG] Logging values -> Epoch: 1.5193571950328706, Training_loss: nan, Eval_loss: 1.9885568618774414, Learning_rate: nan, Time_taken: 6547.161283016205
+[INFO] Epoch 1.5193571950328706: training_loss = nan, eval_loss = 1.9885568618774414, learning_rate = nan, time_taken = 6547.161283016205
+{'eval_loss': 1.9885568618774414, 'eval_runtime': 97.856, 'eval_samples_per_second': 1.564, 'eval_steps_per_second': 1.564, 'epoch': 1.52}
+ 79%|██████████████████████████████████████████████████████████████████▎                 | 270/342 [1:51:43<20:22, 16.98s/it][DEBUG] Logging values -> Epoch: 1.5777940102264427, Training_loss: 1.9529, Eval_loss: nan, Learning_rate: 1.0526315789473684e-05, Time_taken: 6703.661297082901
+[INFO] Epoch 1.5777940102264427: training_loss = 1.9529, eval_loss = nan, learning_rate = 1.0526315789473684e-05, time_taken = 6703.661297082901
+{'loss': 1.9529, 'grad_norm': 0.0, 'learning_rate': 1.0526315789473684e-05, 'epoch': 1.58}
+ 79%|██████████████████████████████████████████████████████████████████▎                 | 270/342 [1:51:43<20:22, 16.98s/it][DEBUG] Logging values -> Epoch: 1.5777940102264427, Training_loss: nan, Eval_loss: 1.9885568618774414, Learning_rate: nan, Time_taken: 6804.439296007156
+[INFO] Epoch 1.5777940102264427: training_loss = nan, eval_loss = 1.9885568618774414, learning_rate = nan, time_taken = 6804.439296007156
+{'eval_loss': 1.9885568618774414, 'eval_runtime': 100.768, 'eval_samples_per_second': 1.518, 'eval_steps_per_second': 1.518, 'epoch': 1.58}
+ 82%|████████████████████████████████████████████████████████████████████▊               | 280/342 [1:55:48<16:17, 15.77s/it][DEBUG] Logging values -> Epoch: 1.6362308254200146, Training_loss: 1.9559, Eval_loss: nan, Learning_rate: 9.064327485380117e-06, Time_taken: 6948.413598060608
+[INFO] Epoch 1.6362308254200146: training_loss = 1.9559, eval_loss = nan, learning_rate = 9.064327485380117e-06, time_taken = 6948.413598060608
+{'loss': 1.9559, 'grad_norm': 0.0, 'learning_rate': 9.064327485380117e-06, 'epoch': 1.64}
+ 82%|████████████████████████████████████████████████████████████████████▊               | 280/342 [1:55:48<16:17, 15.77s/it][DEBUG] Logging values -> Epoch: 1.6362308254200146, Training_loss: nan, Eval_loss: 1.9885568618774414, Learning_rate: nan, Time_taken: 7049.039597272873
+[INFO] Epoch 1.6362308254200146: training_loss = nan, eval_loss = 1.9885568618774414, learning_rate = nan, time_taken = 7049.039597272873
+{'eval_loss': 1.9885568618774414, 'eval_runtime': 100.616, 'eval_samples_per_second': 1.521, 'eval_steps_per_second': 1.521, 'epoch': 1.64}
+ 85%|███████████████████████████████████████████████████████████████████████▏            | 290/342 [2:00:01<14:00, 16.16s/it][DEBUG] Logging values -> Epoch: 1.6946676406135865, Training_loss: 2.0089, Eval_loss: nan, Learning_rate: 7.602339181286549e-06, Time_taken: 7201.868337154388
+[INFO] Epoch 1.6946676406135865: training_loss = 2.0089, eval_loss = nan, learning_rate = 7.602339181286549e-06, time_taken = 7201.868337154388
+{'loss': 2.0089, 'grad_norm': 0.0, 'learning_rate': 7.602339181286549e-06, 'epoch': 1.69}
+ 85%|███████████████████████████████████████████████████████████████████████▏            | 290/342 [2:00:01<14:00, 16.16s/it][DEBUG] Logging values -> Epoch: 1.6946676406135865, Training_loss: nan, Eval_loss: 1.9885568618774414, Learning_rate: nan, Time_taken: 7302.566336154938
+[INFO] Epoch 1.6946676406135865: training_loss = nan, eval_loss = 1.9885568618774414, learning_rate = nan, time_taken = 7302.566336154938
+{'eval_loss': 1.9885568618774414, 'eval_runtime': 100.689, 'eval_samples_per_second': 1.52, 'eval_steps_per_second': 1.52, 'epoch': 1.69}
+ 88%|█████████████████████████████████████████████████████████████████████████▋          | 300/342 [2:04:14<11:55, 17.02s/it][DEBUG] Logging values -> Epoch: 1.7531044558071585, Training_loss: 1.9372, Eval_loss: nan, Learning_rate: 6.140350877192982e-06, Time_taken: 7454.661438703537
+[INFO] Epoch 1.7531044558071585: training_loss = 1.9372, eval_loss = nan, learning_rate = 6.140350877192982e-06, time_taken = 7454.661438703537
+{'loss': 1.9372, 'grad_norm': 0.0, 'learning_rate': 6.140350877192982e-06, 'epoch': 1.75}
+ 88%|█████████████████████████████████████████████████████████████████████████▋          | 300/342 [2:04:14<11:55, 17.02s/it][DEBUG] Logging values -> Epoch: 1.7531044558071585, Training_loss: nan, Eval_loss: 1.9885568618774414, Learning_rate: nan, Time_taken: 7555.293420791626
+[INFO] Epoch 1.7531044558071585: training_loss = nan, eval_loss = 1.9885568618774414, learning_rate = nan, time_taken = 7555.293420791626
+{'eval_loss': 1.9885568618774414, 'eval_runtime': 100.623, 'eval_samples_per_second': 1.521, 'eval_steps_per_second': 1.521, 'epoch': 1.75}
+ 88%|█████████████████████████████████████████████████████████████████████████▋          | 300/342 [2:05:55<11:55, 17.02s/it]F:\finetune\llama3_venv\Lib\site-packages\torch\_dynamo\eval_frame.py:600: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.4 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+F:\finetune\llama3_venv\Lib\site-packages\torch\utils\checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+ 91%|████████████████████████████████████████████████████████████████████████████▏       | 310/342 [2:08:26<08:21, 15.68s/it][DEBUG] Logging values -> Epoch: 1.8115412710007304, Training_loss: 2.02, Eval_loss: nan, Learning_rate: 4.678362573099415e-06, Time_taken: 7706.208874702454
+[INFO] Epoch 1.8115412710007304: training_loss = 2.02, eval_loss = nan, learning_rate = 4.678362573099415e-06, time_taken = 7706.208874702454
+{'loss': 2.02, 'grad_norm': 0.0, 'learning_rate': 4.678362573099415e-06, 'epoch': 1.81}
+ 91%|████████████████████████████████████████████████████████████████████████████▏       | 310/342 [2:08:26<08:21, 15.68s/it][DEBUG] Logging values -> Epoch: 1.8115412710007304, Training_loss: nan, Eval_loss: 1.9885568618774414, Learning_rate: nan, Time_taken: 7806.9187779426575
+[INFO] Epoch 1.8115412710007304: training_loss = nan, eval_loss = 1.9885568618774414, learning_rate = nan, time_taken = 7806.9187779426575
+{'eval_loss': 1.9885568618774414, 'eval_runtime': 100.701, 'eval_samples_per_second': 1.519, 'eval_steps_per_second': 1.519, 'epoch': 1.81}
+ 94%|██████████████████████████████████████████████████████████████████████████████▌     | 320/342 [2:12:38<05:48, 15.85s/it][DEBUG] Logging values -> Epoch: 1.8699780861943025, Training_loss: 2.0081, Eval_loss: nan, Learning_rate: 3.216374269005848e-06, Time_taken: 7958.890606164932
+[INFO] Epoch 1.8699780861943025: training_loss = 2.0081, eval_loss = nan, learning_rate = 3.216374269005848e-06, time_taken = 7958.890606164932
+{'loss': 2.0081, 'grad_norm': 0.0, 'learning_rate': 3.216374269005848e-06, 'epoch': 1.87}
+ 94%|██████████████████████████████████████████████████████████████████████████████▌     | 320/342 [2:12:38<05:48, 15.85s/it][DEBUG] Logging values -> Epoch: 1.8699780861943025, Training_loss: nan, Eval_loss: 1.9885568618774414, Learning_rate: nan, Time_taken: 8059.581603050232
+[INFO] Epoch 1.8699780861943025: training_loss = nan, eval_loss = 1.9885568618774414, learning_rate = nan, time_taken = 8059.581603050232
+{'eval_loss': 1.9885568618774414, 'eval_runtime': 100.681, 'eval_samples_per_second': 1.52, 'eval_steps_per_second': 1.52, 'epoch': 1.87}
+ 96%|█████████████████████████████████████████████████████████████████████████████████   | 330/342 [2:16:59<03:24, 17.06s/it][DEBUG] Logging values -> Epoch: 1.9284149013878744, Training_loss: 1.995, Eval_loss: nan, Learning_rate: 1.7543859649122807e-06, Time_taken: 8219.646561145782
+[INFO] Epoch 1.9284149013878744: training_loss = 1.995, eval_loss = nan, learning_rate = 1.7543859649122807e-06, time_taken = 8219.646561145782
+{'loss': 1.995, 'grad_norm': 0.0, 'learning_rate': 1.7543859649122807e-06, 'epoch': 1.93}
+ 96%|█████████████████████████████████████████████████████████████████████████████████   | 330/342 [2:16:59<03:24, 17.06s/it][DEBUG] Logging values -> Epoch: 1.9284149013878744, Training_loss: nan, Eval_loss: 1.9885568618774414, Learning_rate: nan, Time_taken: 8320.38856101036
+[INFO] Epoch 1.9284149013878744: training_loss = nan, eval_loss = 1.9885568618774414, learning_rate = nan, time_taken = 8320.38856101036
+{'eval_loss': 1.9885568618774414, 'eval_runtime': 100.732, 'eval_samples_per_second': 1.519, 'eval_steps_per_second': 1.519, 'epoch': 1.93}
+ 99%|███████████████████████████████████████████████████████████████████████████████████▌| 340/342 [2:21:11<00:32, 16.26s/it][DEBUG] Logging values -> Epoch: 1.9868517165814463, Training_loss: 2.1219, Eval_loss: nan, Learning_rate: 2.9239766081871344e-07, Time_taken: 8471.972650766373
+[INFO] Epoch 1.9868517165814463: training_loss = 2.1219, eval_loss = nan, learning_rate = 2.9239766081871344e-07, time_taken = 8471.972650766373
+{'loss': 2.1219, 'grad_norm': 0.0, 'learning_rate': 2.9239766081871344e-07, 'epoch': 1.99}
+ 99%|███████████████████████████████████████████████████████████████████████████████████▌| 340/342 [2:21:11<00:32, 16.26s/it][DEBUG] Logging values -> Epoch: 1.9868517165814463, Training_loss: nan, Eval_loss: 1.9885568618774414, Learning_rate: nan, Time_taken: 8572.652571439743
+[INFO] Epoch 1.9868517165814463: training_loss = nan, eval_loss = 1.9885568618774414, learning_rate = nan, time_taken = 8572.652571439743
+{'eval_loss': 1.9885568618774414, 'eval_runtime': 100.671, 'eval_samples_per_second': 1.52, 'eval_steps_per_second': 1.52, 'epoch': 1.99}
+100%|████████████████████████████████████████████████████████████████████████████████████| 342/342 [2:23:21<00:00, 36.54s/it][DEBUG] Logging values -> Epoch: 1.9985390796201608, Training_loss: nan, Eval_loss: nan, Learning_rate: nan, Time_taken: 8607.709152936935
+[INFO] Epoch 1.9985390796201608: training_loss = nan, eval_loss = nan, learning_rate = nan, time_taken = 8607.709152936935
+{'train_runtime': 8607.7142, 'train_samples_per_second': 0.318, 'train_steps_per_second': 0.04, 'train_loss': 1.9876224555467303, 'epoch': 2.0}
+100%|████████████████████████████████████████████████████████████████████████████████████| 342/342 [2:23:27<00:00, 25.17s/it]
+[INFO] Fine-tuning completed in 8608.25 seconds
+[INFO] Saving the fine-tuned model...
+[INFO] Training results saved
+[INFO] Running inference to evaluate the fine-tuned model...
+The model 'PeftModelForCausalLM' is not supported for text-generation. Supported models are ['BartForCausalLM', 'BertLMHeadModel', 'BertGenerationDecoder', 'BigBirdForCausalLM', 'BigBirdPegasusForCausalLM', 'BioGptForCausalLM', 'BlenderbotForCausalLM', 'BlenderbotSmallForCausalLM', 'BloomForCausalLM', 'CamembertForCausalLM', 'LlamaForCausalLM', 'CodeGenForCausalLM', 'CohereForCausalLM', 'CpmAntForCausalLM', 'CTRLLMHeadModel', 'Data2VecTextForCausalLM', 'DbrxForCausalLM', 'ElectraForCausalLM', 'ErnieForCausalLM', 'FalconForCausalLM', 'FuyuForCausalLM', 'GemmaForCausalLM', 'Gemma2ForCausalLM', 'GitForCausalLM', 'GPT2LMHeadModel', 'GPT2LMHeadModel', 'GPTBigCodeForCausalLM', 'GPTNeoForCausalLM', 'GPTNeoXForCausalLM', 'GPTNeoXJapaneseForCausalLM', 'GPTJForCausalLM', 'JambaForCausalLM', 'JetMoeForCausalLM', 'LlamaForCausalLM', 'MambaForCausalLM', 'Mamba2ForCausalLM', 'MarianForCausalLM', 'MBartForCausalLM', 'MegaForCausalLM', 'MegatronBertForCausalLM', 'MistralForCausalLM', 'MixtralForCausalLM', 'MptForCausalLM', 'MusicgenForCausalLM', 'MusicgenMelodyForCausalLM', 'MvpForCausalLM', 'NemotronForCausalLM', 'OlmoForCausalLM', 'OpenLlamaForCausalLM', 'OpenAIGPTLMHeadModel', 'OPTForCausalLM', 'PegasusForCausalLM', 'PersimmonForCausalLM', 'PhiForCausalLM', 'Phi3ForCausalLM', 'PLBartForCausalLM', 'ProphetNetForCausalLM', 'QDQBertLMHeadModel', 'Qwen2ForCausalLM', 'Qwen2MoeForCausalLM', 'RecurrentGemmaForCausalLM', 'ReformerModelWithLMHead', 'RemBertForCausalLM', 'RobertaForCausalLM', 'RobertaPreLayerNormForCausalLM', 'RoCBertForCausalLM', 'RoFormerForCausalLM', 'RwkvForCausalLM', 'Speech2Text2ForCausalLM', 'StableLmForCausalLM', 'Starcoder2ForCausalLM', 'TransfoXLLMHeadModel', 'TrOCRForCausalLM', 'WhisperForCausalLM', 'XGLMForCausalLM', 'XLMWithLMHeadModel', 'XLMProphetNetForCausalLM', 'XLMRobertaForCausalLM', 'XLMRobertaXLForCausalLM', 'XLNetLMHeadModel', 'XmodForCausalLM'].
+Truncation was not explicitly activated but `max_length` is provided a specific value, please use `truncation=True` to explicitly truncate examples to max length. Defaulting to 'longest_first' truncation strategy. If you encode pairs of sequences (GLUE-style) with the tokenizer you can select this strategy more precisely by providing a specific strategy to `truncation`.
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+F:\finetune\llama3_venv\Lib\site-packages\torch\_dynamo\eval_frame.py:600: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.4 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+F:\finetune\llama3_venv\Lib\site-packages\torch\utils\checkpoint.py:92: UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+  warnings.warn(
+[INFO] Inference result:
+User: I'm feeling really anxious about my upcoming exams. Assistant: What's going on? User: I'm not sure. I think I might have a test anxiety disorder. Assistant: Can you tell me more about what you're experiencing? User: Sure. I've been feeling really stressed out and overwhelmed by the thought of taking these exams. I feel like I'm not prepared and I'm worried that I won't do well. Assistant: It sounds like you're having a hard time managing your stress. Is that correct? User: Yes, I think so. I'm having trouble focusing and I'm not sure what to do. Assistant: It's normal to feel anxious about exams, but it's important to manage your stress in
+[INFO] Inference result saved
+[INFO] Plotting training metrics...
+[INFO] Training and evaluation metrics plot saved to F:/output_llama3_qlora\training_metrics.png
+
+=== SUMMARY ===
+Total script execution time: 8701.74 seconds
+Fine-tuning time: 8608.25 seconds
+Output directory: F:/output_llama3_qlora
+Number of training examples: 1369
+Number of evaluation examples: 153
+
+=== FINAL TRAINING METRICS ===
+Epoch: 1.9985390796201608
+Training Loss: nan
+Evaluation Loss: nan
+Learning Rate: nan
+Time Taken: 8607.71 seconds
+(llama3_venv) PS F:\finetune>

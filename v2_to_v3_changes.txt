@@ -1,0 +1,43 @@
+
+Changes Made to the Script
+Increased Epochs:
+
+Updated num_train_epochs in TrainingArguments from 1 to 2.
+Model Preparation Order:
+
+Moved prepare_model_for_kbit_training() invocation after obtaining the PEFT model but before disabling use_cache.
+Added Verbose Logging:
+
+Included more detailed print statements throughout the script for clearer progress tracking:
+Logging Hugging Face login, dataset loading, formatting, model/loading, fine-tuning, and saving.
+Enhanced CSV Metrics Logging:
+
+Added timing information to the logged metrics.
+Improved the MetricsLogger callback class for detailed epoch, training loss, evaluation loss, and time taken logging.
+Plot Training Metrics:
+
+Added a matplotlib plot to visualize training and evaluation loss metrics over epochs and save the plot to the output directory.
+Reorganized Imports:
+
+Ensured all necessary imports are at the top of the script for better readability and organization.
+Cache Configuration Logging:
+
+Added print statements for setting up Hugging Face cache directories.
+Validation and Error Handling:
+
+Included validation for the Hugging Face token and added error handling messages.
+Reformatted Dataset Preparation:
+
+Added comments and refined functions for dataset formatting.
+Documentation and Comments:
+
+Added detailed comments and log messages to explain key steps and configurations.
+Updated Output Paths:
+Ensured that all outputs (models, logs, results) are consistently saved to the specified output directory.
+Consistency in Tokenizer Setup:
+Confirmed the addition of a padding token and updated related log messages.
+Updated TrainerCallback:
+Refined MetricsLogger class to include timing information for each epoch.
+Console Output for Metrics:
+Added print statements to output final training metrics to the console at the end of the script for quick review.
+These changes should provide a more streamlined, informative, and robust script to handle the fine-tuning process efficiently on an RTX 3060.
